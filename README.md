@@ -34,4 +34,5 @@ How to improve the project:
 4) Add a way to search for different types of dom elements, so we can find all kinds of data and not just links.
 5) Add verification to the requests, some sort of key(jwt) so we will not run unauthorized requests
 6) Add CICD(dockerfile + github action), with automatic deployment to a cloud, making sure to run tests beforehand.
-
+7) Add a redis service which will be the only connection to redis, so when we will want to scale up the project, we will not have to worry about the amount of Simultaneous connections we have to Redis.
+8) Maybe we would also want to add different sets in Redis, and not have just 1 set with all the URLs as it will be harder and harder to find whether a URL is unique and adding it, but Redis does work very well with large sets and each set requires additional memory.
