@@ -22,17 +22,17 @@ class ScrapperRouter {
                 return res.status(500).json({error: 'unexpected error has occurred: ' + e.toString()})
             }
         });
-        this.router.get('/doesLinkExist', async (req, res) => {
+        this.router.get('/parsedData', async (req, res) => {
             try {
                 const url = req.query.url;
                 if(!url) {
                     return res.status(400).json({error: 'no url given'})
                 }
-                const data = await Scrapper.doesLinkExist(url)
+                const data = await Scrapper.getLinkData(url)
                 if (!data) {
                     return res.status(400).json({error: 'no such url has been saved'})
                 }
-                return res.json({data: 'such url exists in the db!'})
+                return res.json({url: data.url, html: data.html})
             } catch (e) {
                 return res.status(500).json({error: 'unexpected error has occurred: ' + e.toString()})
             }
