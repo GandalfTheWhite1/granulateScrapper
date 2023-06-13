@@ -59,5 +59,8 @@ class ScrapperDB {
         }
         return doc;
     }
+    static async closeDB() {
+        await this.scrapperDB.client.close()
+    }
 
 } export default ScrapperDB

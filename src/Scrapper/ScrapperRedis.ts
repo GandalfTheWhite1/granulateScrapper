@@ -23,5 +23,9 @@ class ScrapperRedis {
         // @ts-ignore
         return new IORedisMock()
     }
+    static async closeDB() {
+        // mock redis doesn't support shutdown.
+        // await this.redisClient.shutdown();
+    }
 
 }export default ScrapperRedis;
