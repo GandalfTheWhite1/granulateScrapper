@@ -1,5 +1,6 @@
 import {MAX_DEPTH, MAX_NUM_OF_LINKS, mockLinks, NUM_OF_LINKS_TO_CHOOSE} from "../consts.js";
 import ScrapperRedis from "./ScrapperRedis.js";
+import HtmlParser from "./HtmlParser.js";
 
 class Scrapper {
     static queue: {link: string, depth: number}[] = [];
@@ -18,8 +19,8 @@ class Scrapper {
                 continue;
             }
             try {
-                const html = await this.parseHtml(link)
-                const subLinks = this.getSublinks(html);
+                const html = await HtmlParser.parseHtml(link)
+                const subLinks = HtmlParser.getSublinks(html);
                 for(const link of subLinks) {
                     numOfLinksAdded += (await this.enqueUniqueLink(link, 0));
                 }
@@ -30,16 +31,6 @@ class Scrapper {
         return numOfLinksAdded;
     }
 
-    static async parseHtml(url: string): Promise<string> {
-        // In here we will also need to check if the link returns an html or an error(for any reason)
-        // const response = await axios.get(url);
-        // return render(htmlParse.parseDocument(response.data));
-        return "<html> mock html </html>"
-    }
-    private static getSublinks(html: string): string[] {
-        mockLinks.sort(() => Math.random() - 0.5);
-        return mockLinks.slice(0, NUM_OF_LINKS_TO_CHOOSE)
-    }
     private static async enqueUniqueLink(link: string, depth: number): Promise<number> {
         const isDuplicate = await ScrapperRedis.isDuplicate(link);
         if(isDuplicate) {
