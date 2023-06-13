@@ -4,8 +4,8 @@ First npm install \
 To run the code you need to run npm run build and npm run run \
 To run tests you need to run npm run test
 You will need to run postman and send a request to localhost:3000/parse with body {url: link}
-If you want to check if a link exists you need to run get on /parsedData?url=link
-Assumptions I made - \
+If you want to check if a link exists you need to run get on /doesLinkExist?url=link
+Assumptions I made:
 1) We don't need to save the html and we don't need to save the connections between the different urls
 2) We only need to save the links themselves. 
 3) No need for actual parsing of html and extracting links from it(although there is some code to enable if you want to read the html)
