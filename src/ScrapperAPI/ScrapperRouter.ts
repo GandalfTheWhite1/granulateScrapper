@@ -2,8 +2,7 @@ import {Router} from 'express';
 import Scrapper from "../Scrapper/Scrapper.js";
 
 class ScrapperRouter {
-    router = Router();
-
+    router: Router = Router();
     constructor() {
         this.initRouters();
     }
