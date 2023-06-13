@@ -1,4 +1,4 @@
-export const mockLinks: string[] = [
+export const MOCK_LINKS: string[] = [
     'https://mockLink.com/page/1',
     'https://mockLink.com/page/2',
     'https://mockLink.com/page/3',

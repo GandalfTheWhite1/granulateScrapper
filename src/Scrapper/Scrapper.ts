@@ -1,4 +1,4 @@
-import {MAX_DEPTH, MAX_NUM_OF_LINKS, mockLinks, NUM_OF_LINKS_TO_CHOOSE} from "../consts.js";
+import {MAX_DEPTH, MAX_NUM_OF_LINKS, MOCK_LINKS, NUM_OF_LINKS_TO_CHOOSE} from "../consts.js";
 import ScrapperRedis from "./ScrapperRedis.js";
 import HtmlParser from "./HtmlParser.js";
 

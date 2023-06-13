@@ -1,4 +1,4 @@
-import {mockLinks, NUM_OF_LINKS_TO_CHOOSE} from "../consts.js";
+import {MOCK_LINKS, NUM_OF_LINKS_TO_CHOOSE} from "../consts.js";
 class HtmlParser {
     static async parseHtml(url: string): Promise<string> {
         // In here we will also need to check if the link returns an html or an error(for any reason)
@@ -7,7 +7,7 @@ class HtmlParser {
         return "<html> mock html </html>"
     }
     static getSublinks(html: string): string[] {
-        mockLinks.sort(() => Math.random() - 0.5);
-        return mockLinks.slice(0, NUM_OF_LINKS_TO_CHOOSE)
+        MOCK_LINKS.sort(() => Math.random() - 0.5);
+        return MOCK_LINKS.slice(0, NUM_OF_LINKS_TO_CHOOSE)
     }
 } export default HtmlParser;
